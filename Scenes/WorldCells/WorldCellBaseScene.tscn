@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu566f2rr46tc"]
+
+[ext_resource type="Script" path="res://Scripts/WorldCellBaseScene.cs" id="1_1wrnm"]
+[ext_resource type="Texture2D" uid="uid://bsx1c7v4qrx0c" path="res://Assets/StaticMapAssets/BACKGROUND/FOREST_CLASSIC.png" id="2_130ox"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2p4ne"]
+a = Vector2(256, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uqld3"]
+a = Vector2(2, -1)
+b = Vector2(-257, -0.999978)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_aev7x"]
+b = Vector2(175, -7.64949e-06)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_q35an"]
+b = Vector2(-176, -1.52588e-05)
+
+[node name="WorldCellBaseScene" type="Node2D"]
+script = ExtResource("1_1wrnm")
+metadata/_edit_lock_ = true
+
+[node name="EnemyWanderBoundary" type="StaticBody2D" parent="."]
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="BottomBorder" type="CollisionShape2D" parent="EnemyWanderBoundary"]
+position = Vector2(0, 165)
+shape = SubResource("SegmentShape2D_2p4ne")
+one_way_collision = true
+
+[node name="TopBorder" type="CollisionShape2D" parent="EnemyWanderBoundary"]
+rotation = 3.14159
+shape = SubResource("SegmentShape2D_uqld3")
+one_way_collision = true
+
+[node name="LeftBorder" type="CollisionShape2D" parent="EnemyWanderBoundary"]
+position = Vector2(1, 0)
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_aev7x")
+one_way_collision = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyWanderBoundary"]
+position = Vector2(255, 0)
+rotation = -1.5708
+shape = SubResource("SegmentShape2D_q35an")
+one_way_collision = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(8, 8)
+texture = ExtResource("2_130ox")

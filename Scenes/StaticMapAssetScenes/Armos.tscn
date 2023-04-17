@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dytvb5012hyxl"]
+
+[ext_resource type="Texture2D" uid="uid://bl7qa0jjw3mwi" path="res://Assets/StaticMapAssets/ARMOS/FOREST_CLASSIC.png" id="1_1hq3k"]
+[ext_resource type="Script" path="res://Scripts/StaticMapAssetScripts/Armos.cs" id="1_h4433"]
+[ext_resource type="PackedScene" uid="uid://dgo46b086p1gt" path="res://Scenes/StaticMapAssetScenes/StaticMapAssetCollision-Small.tscn" id="2_rb7wa"]
+
+[node name="Armos" type="StaticBody2D"]
+script = ExtResource("1_h4433")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1hq3k")
+
+[node name="StaticMapAssetCollision-Small" parent="." instance=ExtResource("2_rb7wa")]
